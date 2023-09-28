@@ -162,6 +162,46 @@ class LibrosNoFiccion extends Libros {
 
 public class Main {
     public static void main(String[] args) {
+        // Crear usuarios
+        Usuario usuario1 = new Usuario("Pepito", 86736832, "6783475-3");
+        Usuario usuario2 = new Usuario("Rodrigo", 91127364, "11783775-K");
 
+        // Crear bibliotecas para los usuarios
+        Biblioteca bibliotecaUsuario1 = new Biblioteca("Biblioteca de Pepito");
+        Biblioteca bibliotecaUsuario2 = new Biblioteca("Biblioteca de Rodrigo");
+
+        // Crear libros de ficción
+        LibrosFiccion libro1 = new LibrosFiccion("AutorFiccion1", "LibroFiccion1", "Ficción", 300, "Sinopsis1", 2023);
+        LibrosFiccion libro2 = new LibrosFiccion("AutorFiccion2", "LibroFiccion2", "Ficción", 250, "Sinopsis2", 2022);
+        LibrosFiccion libro3 = new LibrosFiccion("AutorFiccion3", "LibroFiccion3", "Ficción", 400, "Sinopsis3", 2021);
+        LibrosFiccion libro4 = new LibrosFiccion("AutorFiccion4", "LibroFiccion4", "Ficción", 350, "Sinopsis4", 2020);
+        LibrosFiccion libro5 = new LibrosFiccion("AutorFiccion5", "LibroFiccion5", "Ficción", 280, "Sinopsis5", 2019);
+
+        // Crear libros de no ficción
+        LibrosNoFiccion libro6 = new LibrosNoFiccion("AutorNoFiccion1", "LibroNoFiccion1", "No Ficción", 200, true, "Biografiado1");
+        LibrosNoFiccion libro7 = new LibrosNoFiccion("AutorNoFiccion2", "LibroNoFiccion2", "No Ficción", 150, true, "Biografiado2");
+        LibrosNoFiccion libro8 = new LibrosNoFiccion("AutorNoFiccion3", "LibroNoFiccion3", "No Ficción", 220, false, "No aplica");
+
+        // Agregar libros a las bibliotecas de los usuarios
+        bibliotecaUsuario1.agregarLibro(libro1);
+        bibliotecaUsuario1.agregarLibro(libro2);
+        bibliotecaUsuario1.agregarLibro(libro3);
+        bibliotecaUsuario1.agregarLibro(libro4);
+        bibliotecaUsuario1.agregarLibro(libro5);
+
+        bibliotecaUsuario2.agregarLibro(libro6);
+        bibliotecaUsuario2.agregarLibro(libro7);
+        bibliotecaUsuario2.agregarLibro(libro8);
+
+        // Ejemplo de cómo acceder a la información de un libro en la biblioteca del usuario1
+        Libros libroEnBibliotecaUsuario1 = bibliotecaUsuario1.getLibro(0);
+        if (libroEnBibliotecaUsuario1 != null) {
+            System.out.println("Información del libro en la biblioteca de Pepito:");
+            System.out.println("Nombre: " + libroEnBibliotecaUsuario1.getNombre());
+            System.out.println("Autor: " + libroEnBibliotecaUsuario1.getAutor());
+            // Agrega más información si es necesario
+        } else {
+            System.out.println("No se encontró ningún libro en la biblioteca del Usuario1.");
+        }
     }
 }
